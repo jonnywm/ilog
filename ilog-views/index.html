@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class='no-js'>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+
+	<!--==================================================================
+			Your Title
+		==================================================================-->
+	<title>iLog Tecnologia</title>
+
+
+	<!--==================================================================
+			CSS Stylesheets
+		==================================================================-->
+	<link rel='stylesheet' type='text/css' href='bootstrap/css/bootstrap.min.css'>
+	<link rel='stylesheet' type='text/css' href='css/ionicons.min.css'>
+	<link rel='stylesheet' type='text/css' href='css/owl.carousel.css'>
+	<link rel='stylesheet' type='text/css' href='css/magnific-popup.css'>
+	<link rel='stylesheet' type='text/css' href='css/style.css'>
+	<script src='js/jquery.min.js'></script>
+	<script src='js/jquery.fitvids.js'></script>
+	<script src='js/owl.carousel.min.js'></script>
+	<script src='js/jquery.magnific-popup.min.js'></script>
+	<script src='js/validator.min.js'></script>
+	<script src='js/script.js'></script>
+	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"> </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src='js/ilog.js'></script>
+
+</head>
+
+<body>
+	<!--page-borders-->
+	<div class='page-borders'>
+		<div class='left'></div>
+		<div class='right'></div>
+	</div>
+
+	<!--menu-btn-->
+	<a href='#' class='menu-btn'>
+		<span class='lines'>
+			<span class='l1'></span>
+			<span class='l2'></span>
+			<span class='l3'></span>
+		</span>
+	</a>
+
+
+	<!--menu-->
+	<nav class='menu'>
+		<ul>
+			<li>
+				<a href='#intro'>
+					Início
+				</a>
+			</li>
+			<li>
+				<a href='#users'>
+					Usuários
+				</a>
+			</li>
+			<li>
+				<a href='#screenshots'>
+					Cursos
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+	<!--==================================================================
+			Preloader
+		==================================================================-->
+	<div id='preloader'>
+		<div class='loader'>
+			<img src='img/loader.gif' alt>
+		</div>
+	</div>
+
+
+	<!--==================================================================
+			Main Wrapper
+		==================================================================-->
+	<div id='main-wrapper'>
+
+
+		<!--==================================================================
+				Intro Section
+			==================================================================-->
+
+		<!--==================================================================
+				users Section -- 1
+			==================================================================-->
+		<section id='users' class='section users-section'>
+			<div class='container' ng-app="ilog">
+				<div class='row'>
+					<div class='users-text'>
+						<h2>Usuários</h2>
+					</div>
+					<div class='col-md-4' ng-app="ilog" ng-controller="formUser">
+						<form ng-submit="addUser()">
+							<<h3 style="text-align: center;">Cadastro/Edição</h3>
+							<div class='col-md-4'>
+								Nome:<br>
+								<input type="text" ng-model="nome">
+							</div>
+							<div class='col-md-4'>
+								Telefone:<br>
+								<input type="text" ng-model="telefone" ui-mask="+99 (99) 99999-9999" ng-pattern="^(\+)[0-9]{2}( .)[0-9]{2}(. )[0-9]{5}(\-)[0-9]{4}$">
+							</div>
+							<div class='col-md-4'>
+								Data Admissão:<br>
+								<input type="text" ng-model="dataAdmissao" >
+							</div>
+							<div class='col-md-4'>
+								Endereço:<br>
+								<input type="text" ng-model="endereco">
+							</div>
+							<div class='col-md-4'>
+								Login:<br>
+								<input type="text" ng-model="login">
+							</div>
+							<div class='col-md-4'>
+								Senha:<br>
+								<input type="text" ng-model="senha">
+							</div>
+							<br/>
+							<br/>
+							<div style="margin-top: 60px;" align='center'>
+								<button type="submit">Salvar</button>
+							</div>
+						</form>
+					</div>
+
+					<div class='col-md-8' ng-app="ilog" ng-controller="getUsers">
+						<h3 style="text-align: center;">Listagem</h3>
+						<table id="table" class="table table-striped table-hover table-dark" data-height="460">
+							<thead>
+								<tr>
+									<th data-field="id">ID</th>
+									<th data-field="nome">Nome</th>
+									<th data-field="telefone">Telefone</th>
+									<th data-field="endereco">Endereço</th>
+									<th data-field="dataAdmissao">Data Admissão</th>
+									<th data-field="login">Login</th>
+								</tr>
+							</thead>
+							<tr ng-repeat="user in users">
+								<td>{{ user.id }}</td>
+								<td>{{ user.nome }}</td>
+								<td>{{ user.telefone }}</td>
+								<td>{{ user.endereco }}</td>
+								<td>{{ user.dataAdmissao }}</td>
+								<td>{{ user.login }}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+
+		<!--==================================================================
+				Footer
+			==================================================================-->
+		<footer>
+			<div class='container text-center'>
+				<p>iLog Tecnologia - Test</p>
+			</div>
+		</footer>
+
+	</div>
+</body>
+
+</html>
